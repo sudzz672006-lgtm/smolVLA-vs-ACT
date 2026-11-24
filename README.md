@@ -3,6 +3,12 @@
 Staged training of SmolVLA (LeRobot) on LIBERO suites in MuJoCo, testing how much an
 earlier suite is forgotten when training moves on, and whether replay prevents it.
 
+## Key findings
+1. **Execution length matters as much as training.** Executing 10 of the 50 predicted actions before re-planning, instead of all 50, raised the stage 1 model from 68% to 94% on libero_object with no retraining.
+2. **Sequential training forgets.** Training on libero_10 alone drops libero_object from 94% to 6%.
+3. **Replay is a cheap fix.** Mixing 20% of the old episodes into stage 2 keeps libero_object at 80% and does not hurt libero_10 (60% vs 52%).
+4. **Training loss is a weak guide.** Success kept improving while the loss was nearly flat.
+
 ## Setup
 - Ubuntu 24.04, RTX 5050 laptop GPU (8 GB), Python 3.12, MuJoCo with `MUJOCO_GL=egl`
 - LeRobot 0.7.1 (editable install, exact commit in `lerobot_commit.txt`), pinned packages in `requirements.txt`
@@ -33,6 +39,15 @@ The model predicts 50-step action chunks; how many are executed before re-planni
 
 ### Stage 1 learning curve (libero_object, n_action_steps=50, 10 episodes per point)
 2,500 steps: 20% | 5,000: 50% | 7,500: 60% | 10,000: 50% (10 eps) / 68% (50 eps)
+
+### Stage 2 results by run (10,000 steps, 50 episodes per suite)
+
+| Run | n_action_steps=50: libero_object / libero_10 | n_action_steps=10: libero_object / libero_10 |
+|---|---|---|
+| 2a: libero_10, no replay | 2% (1/50) / 32% (16/50) | 6% (3/50) / 52% (26/50) |
+| 2b: libero_10 + 20% object replay | not evaluated | 80% (40/50) / 60% (30/50) |
+
+Only final checkpoints were evaluated for stage 2, so there is no per-checkpoint learning curve as there is for stage 1.
 
 ## Figures
 ![Stage 1 loss and success](results/figures/stage1_loss_and_success.png)
@@ -71,6 +86,22 @@ for suite in libero_object libero_10; do
     --eval.batch_size=1 --eval.n_episodes=5 --env.max_parallel_tasks=1
 done
 ```
+
+## Limitations
+- Each success rate comes from 50 episodes (5 per task), so differences of a few points are within noise; per-task counts are too small to interpret on their own.
+- One training run and one random replay sample per configuration (single seed).
+- `n_action_steps=10` was chosen by evaluating on the same suite it is reported on, so those numbers are slightly optimistic.
+- The stage 1 model was not re-evaluated on libero_10 at `n_action_steps=10`.
+- Training took about 2 hours per 10,000 steps at batch size 16 on a laptop GPU (about 23 samples/s).
+
+## References
+- LeRobot: https://github.com/huggingface/lerobot
+- SmolVLA: Shukor et al., *SmolVLA: A Vision-Language-Action Model for Affordable and Efficient Robotics*
+- LIBERO: Liu et al., *LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning*
+- ACT: Zhao et al., *Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware*
+
+## License
+Scripts in this repository are released under the MIT License (see `LICENSE`). LeRobot and the LIBERO datasets are covered by their own licenses.
 
 ## ACT baseline
 Experiments are in progress and will be documented later.
