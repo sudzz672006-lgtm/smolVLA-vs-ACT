@@ -10,6 +10,8 @@ for s, loss, l1 in re.findall(r"step:(\S+)\s.*?\bloss:([\d.]+).*?\bl1_loss:([\d.
     s = float(s[:-1]) * 1000 if s.endswith("K") else float(s)
     S.append(s); L.append(float(loss)); L1.append(float(l1))
 S, L, L1 = map(np.array, (S, L, L1))
+if len(S) == 5000: S = np.arange(1, 5001) * 10.0
+else: print('WARNING: expected 5000 log points, got', len(S))
 o = np.argsort(S); S, L, L1 = S[o], L[o], L1[o]
 w = 100  # log_freq=10 -> 100 points = 1000 steps
 sm = lambda a: np.convolve(a, np.ones(w) / w, mode="valid")

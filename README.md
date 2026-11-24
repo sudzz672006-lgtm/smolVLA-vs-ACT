@@ -36,7 +36,11 @@ The model predicts 50-step action chunks; how many are executed before re-planni
 
 ## Figures
 ![Stage 1 loss and success](results/figures/stage1_loss_and_success.png)
+
+*Stage 1 (libero_object, 10,000 steps).* **Left:** training loss (flow-matching) drops quickly in the first ~1,000 steps, from about 2.1 to 0.5, then flattens near 0.3. **Right:** success on libero_object at four checkpoints, at the default `n_action_steps=50`. The label `n=10` means 10 evaluation episodes (hence the wide 95% intervals), and `n=50` marks the 50-episode evaluation of the final checkpoint (68%). Success keeps rising while the loss is nearly flat, so loss alone is a poor guide to task performance. With `n_action_steps=10` the same final checkpoint reaches 94% (see table).
 ![Stage 2 replay run: loss and success comparison](results/figures/stage2_replay20_summary.png)
+
+*Stage 2 with 20% object replay (10,000 steps, starting from the stage 1 weights).* **Left:** training loss starts near 1.1 (new data, new scenes) and settles around 0.33. **Right:** success on both suites for the three models, all at `n_action_steps=10`, 50 episodes each, with 95% Wilson intervals. Training on libero_10 alone drops libero_object from 94% to 6% (forgetting), while adding 20% object episodes keeps it at 80% and libero_10 at 60%.
 
 ## Example rollouts
 Successful episodes from the stage 2 (replay) model:
@@ -56,10 +60,16 @@ lerobot-train --policy.type=smolvla --policy.load_vlm_weights=true --policy.push
 lerobot-train --policy.path=./outputs/object10k/checkpoints/010000/pretrained_model --policy.push_to_hub=false \
   --dataset.repo_id=lerobot/libero --dataset.episodes="$(cat splits/long10_replay20.json)" \
   --dataset.video_backend=torchcodec --output_dir=./outputs/stage2_replay20 --steps=10000 --batch_size=16
-# evaluation
-lerobot-eval --policy.path=./outputs/stage2_replay20/checkpoints/010000/pretrained_model \
+# evaluation, stage 1 (libero_object)
+lerobot-eval --policy.path=./outputs/object10k/checkpoints/010000/pretrained_model \
   --policy.n_action_steps=10 --env.type=libero --env.task=libero_object \
   --eval.batch_size=1 --eval.n_episodes=5 --env.max_parallel_tasks=1
+# evaluation, stage 2 (both suites; repeat with outputs/stage2_long10 for the no-replay model)
+for suite in libero_object libero_10; do
+  lerobot-eval --policy.path=./outputs/stage2_replay20/checkpoints/010000/pretrained_model \
+    --policy.n_action_steps=10 --env.type=libero --env.task=$suite \
+    --eval.batch_size=1 --eval.n_episodes=5 --env.max_parallel_tasks=1
+done
 ```
 
 ## Layout

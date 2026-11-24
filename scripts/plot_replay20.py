@@ -11,6 +11,8 @@ for s, l in re.findall(r"step:(\S+)\s.*?\bloss:([\d.]+)", txt):
     s = float(s[:-1]) * 1000 if s.endswith("K") else float(s)
     steps.append(s); losses.append(float(l))
 steps, losses = np.array(steps), np.array(losses)
+if len(steps) == 1000: steps = np.arange(1, 1001) * 10.0
+else: print('WARNING: expected 1000 log points, got', len(steps))
 w = 20  # log_freq=10, so 20 points = 200 steps
 smooth = np.convolve(losses, np.ones(w) / w, mode="valid")
 
