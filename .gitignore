@@ -1,0 +1,6 @@
+outputs/
+traces*/
+sheets/
+*.mp4.tmp
+*.safetensors
+__pycache__/

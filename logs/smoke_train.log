@@ -1,0 +1,240 @@
+/home/sudarshan/smolvla/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+WARNING:lerobot.configs.policies:Device 'None' is not available. Switching to 'cuda'.
+INFO 2026-11-15 17:51:02 ot_train.py:565 {'accelerator': {'activation_checkpointing': {'mode': <ActivationCheckpointingMode.NONE: 'none'>},
+                 'compile': {'backend': 'inductor',
+                             'enabled': False,
+                             'mode': None,
+                             'regional': True},
+                 'ddp': {'find_unused_parameters': True,
+                         'gradient_as_bucket_view': False,
+                         'static_graph': False},
+                 'fsdp': {'cpu_offload': False,
+                          'ignored_modules': None,
+                          'min_num_params': None,
+                          'mixed_precision_policy': {'cast_forward_inputs': True,
+                                                     'output_dtype': None,
+                                                     'param_dtype': None,
+                                                     'reduce_dtype': None},
+                          'reshard_after_forward': True,
+                          'wrap_modules': None},
+                 'grad_scaler': {'backoff_factor': 0.5,
+                                 'growth_factor': 2.0,
+                                 'growth_interval': 2000,
+                                 'init_scale': 65536.0},
+                 'gradient_accumulation': {'steps': 1,
+                                           'sync_each_batch': False},
+                 'init_process_group': {'backend': 'nccl',
+                                        'init_method': None,
+                                        'timeout': None},
+                 'mixed_precision': 'no'},
+ 'batch_size': 4,
+ 'checkpoint_format': <CheckpointFormat.SAFETENSORS: 'safetensors'>,
+ 'checkpoint_path': None,
+ 'cudnn_deterministic': False,
+ 'dataloader_multiprocessing_context': 'spawn',
+ 'dataset': {'depth_output_unit': 'mm',
+             'episodes': None,
+             'eval_split': 0.0,
+             'exclude_episodes': None,
+             'image_transforms': {'backend': 'dataloader',
+                                  'enable': False,
+                                  'gpu_chunk_size': 32,
+                                  'gpu_compile': True,
+                                  'max_num_transforms': 3,
+                                  'random_order': False,
+                                  'tfs': {'affine': {'kwargs': {'degrees': [-5.0,
+                                                                            5.0],
+                                                                'translate': [0.05,
+                                                                              0.05]},
+                                                     'type': 'RandomAffine',
+                                                     'weight': 1.0},
+                                          'brightness': {'kwargs': {'brightness': [0.8,
+                                                                                   1.2]},
+                                                         'type': 'ColorJitter',
+                                                         'weight': 1.0},
+                                          'contrast': {'kwargs': {'contrast': [0.8,
+                                                                               1.2]},
+                                                       'type': 'ColorJitter',
+                                                       'weight': 1.0},
+                                          'hue': {'kwargs': {'hue': [-0.05,
+                                                                     0.05]},
+                                                  'type': 'ColorJitter',
+                                                  'weight': 1.0},
+                                          'saturation': {'kwargs': {'saturation': [0.5,
+                                                                                   1.5]},
+                                                         'type': 'ColorJitter',
+                                                         'weight': 1.0},
+                                          'sharpness': {'kwargs': {'sharpness': [0.5,
+                                                                                 1.5]},
+                                                        'type': 'SharpnessJitter',
+                                                        'weight': 1.0}}},
+             'repo_id': 'lerobot/libero',
+             'repo_type': 'dataset',
+             'return_uint8': False,
+             'revision': None,
+             'root': None,
+             'storage_options': None,
+             'streaming': False,
+             'streaming_byte_budget_gb': 8.0,
+             'streaming_decode_threads': 2,
+             'streaming_decoded_queue_size': 8,
+             'streaming_episode_pool_size': None,
+             'streaming_native_http_connections': None,
+             'streaming_native_http_subranges': 1,
+             'streaming_prefetch_episodes': 8,
+             'streaming_sampling_strategy': <StreamingSamplingStrategy.REMAINING: 'remaining'>,
+             'streaming_sidecar_lock_timeout_s': 1800,
+             'use_imagenet_stats': True,
+             'video_backend': 'torchcodec',
+             'video_decoder_cache_size': None},
+ 'ema': None,
+ 'env': None,
+ 'env_eval_freq': 20000,
+ 'eval': {'batch_size': 11,
+          'max_episode_steps': None,
+          'n_episodes': 50,
+          'recording': False,
+          'recording_private': False,
+          'recording_repo_id': None,
+          'use_async_envs': True},
+ 'eval_steps': 0,
+ 'job': {'detach': False,
+         'image': 'huggingface/lerobot-gpu:latest',
+         'tags': [],
+         'target': None,
+         'timeout': '2d'},
+ 'job_name': 'smolvla',
+ 'log_freq': 200,
+ 'max_eval_samples': 0,
+ 'num_workers': 4,
+ 'optimizer': {'betas': [0.9, 0.95],
+               'eps': 1e-08,
+               'fused': None,
+               'grad_clip_norm': 10,
+               'lr': 0.0001,
+               'type': 'adamw',
+               'weight_decay': 1e-10},
+ 'output_dir': 'outputs/smoke',
+ 'parallelism': {'cfg_parallel': 1,
+                 'context_parallel': {'ring_degree': 1, 'ulysses_degree': 1},
+                 'dp_replicate': 1,
+                 'dp_shard': 1},
+ 'peft': None,
+ 'persistent_workers': True,
+ 'policy': {'adapt_to_pi_aloha': False,
+            'add_image_special_tokens': False,
+            'attention_mode': 'cross_attn',
+            'chunk_size': 50,
+            'compile_mode': 'max-autotune',
+            'compile_model': False,
+            'device': 'cuda',
+            'dtype': None,
+            'empty_cameras': 0,
+            'expert_width_multiplier': 0.75,
+            'freeze_vision_encoder': True,
+            'input_features': {},
+            'license': None,
+            'load_vlm_weights': True,
+            'max_action_dim': 32,
+            'max_period': 4.0,
+            'max_state_dim': 32,
+            'min_period': 0.004,
+            'n_action_steps': 50,
+            'n_obs_steps': 1,
+            'normalization_mapping': {'ACTION': <NormalizationMode.MEAN_STD: 'MEAN_STD'>,
+                                      'STATE': <NormalizationMode.MEAN_STD: 'MEAN_STD'>,
+                                      'VISUAL': <NormalizationMode.IDENTITY: 'IDENTITY'>},
+            'num_expert_layers': -1,
+            'num_steps': 10,
+            'num_vlm_layers': 16,
+            'optimizer_betas': [0.9, 0.95],
+            'optimizer_eps': 1e-08,
+            'optimizer_fused': None,
+            'optimizer_grad_clip_norm': 10,
+            'optimizer_lr': 0.0001,
+            'optimizer_weight_decay': 1e-10,
+            'output_features': {},
+            'pad_language_to': 'longest',
+            'prefix_length': -1,
+            'pretrained_path': None,
+            'pretrained_revision': None,
+            'private': None,
+            'push_to_hub': False,
+            'repo_id': None,
+            'resize_imgs_with_padding': [512, 512],
+            'rtc_config': None,
+            'scheduler_decay_lr': 2.5e-06,
+            'scheduler_decay_steps': 30000,
+            'scheduler_warmup_steps': 1000,
+            'self_attn_every_n_layers': 2,
+            'tags': None,
+            'tokenizer_max_length': 48,
+            'train_expert_only': True,
+            'train_state_proj': True,
+            'type': 'smolvla',
+            'use_amp': False,
+            'use_cache': True,
+            'use_delta_joint_actions_aloha': False,
+            'use_peft': False,
+            'vlm_model_name': 'HuggingFaceTB/SmolVLM2-500M-Video-Instruct'},
+ 'prefetch_factor': 4,
+ 'rename_map': {},
+ 'resume': False,
+ 'reward_model': None,
+ 'sample_weighting': None,
+ 'save_checkpoint': True,
+ 'save_checkpoint_to_hub': False,
+ 'save_freq': 20000,
+ 'scheduler': {'decay_lr': 2.5e-06,
+               'num_decay_steps': 30000,
+               'num_warmup_steps': 1000,
+               'peak_lr': 0.0001,
+               'type': 'cosine_decay_with_warmup'},
+ 'seed': 1000,
+ 'steps': 50,
+ 'tf32': True,
+ 'tolerance_s': 0.0001,
+ 'trackio': {'capture_console': True,
+             'disable_artifact': True,
+             'enable': False,
+             'private': None,
+             'project': 'lerobot',
+             'resume': None,
+             'run_name': None,
+             'space_id': None},
+ 'use_policy_training_preset': True}
+INFO 2026-11-15 17:51:02 ot_train.py:572 Logs will be saved locally.
+INFO 2026-11-15 17:51:02 ot_train.py:589 Creating dataset
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING 2026-11-15 17:51:06 s/_http.py:1023 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 4 files:  25%|██▌       | 1/4 [00:01<00:03,  1.08s/it]Fetching 4 files:  50%|█████     | 2/4 [00:01<00:01,  1.05it/s]Fetching 4 files:  75%|███████▌  | 3/4 [00:03<00:01,  1.36s/it]Fetching 4 files: 100%|██████████| 4/4 [00:04<00:00,  1.06it/s]Fetching 4 files: 100%|██████████| 4/4 [00:04<00:00,  1.03s/it]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 777.70it/s]
+Fetching 457 files:   0%|          | 0/457 [00:00<?, ?it/s]Fetching 457 files:   0%|          | 1/457 [00:00<07:22,  1.03it/s]Fetching 457 files:   1%|          | 3/457 [00:02<06:39,  1.14it/s]Fetching 457 files:   2%|▏         | 7/457 [00:03<02:38,  2.83it/s]Fetching 457 files:   2%|▏         | 8/457 [00:03<02:41,  2.77it/s]Fetching 457 files:   2%|▏         | 9/457 [00:03<02:50,  2.62it/s]Fetching 457 files:   2%|▏         | 11/457 [00:05<03:34,  2.08it/s]Fetching 457 files:   3%|▎         | 13/457 [00:05<02:29,  2.98it/s]Fetching 457 files:   3%|▎         | 15/457 [00:06<03:13,  2.29it/s]Fetching 457 files:   4%|▎         | 16/457 [00:06<02:47,  2.63it/s]Fetching 457 files:   4%|▍         | 18/457 [00:06<02:02,  3.57it/s]Fetching 457 files:   4%|▍         | 19/457 [00:07<03:01,  2.41it/s]Fetching 457 files:   4%|▍         | 20/457 [00:08<02:57,  2.47it/s]Fetching 457 files:   5%|▍         | 21/457 [00:08<02:30,  2.90it/s]Fetching 457 files:   5%|▍         | 22/457 [00:08<02:11,  3.30it/s]Fetching 457 files:   5%|▌         | 23/457 [00:09<02:42,  2.68it/s]Fetching 457 files:   5%|▌         | 24/457 [00:09<02:14,  3.22it/s]Fetching 457 files:   5%|▌         | 25/457 [00:09<02:24,  2.98it/s]Fetching 457 files:   6%|▌         | 26/457 [00:09<01:59,  3.60it/s]Fetching 457 files:   6%|▌         | 27/457 [00:10<02:37,  2.72it/s]Fetching 457 files:   6%|▌         | 28/457 [00:10<02:31,  2.84it/s]Fetching 457 files:   6%|▋         | 29/457 [00:11<02:47,  2.56it/s]Fetching 457 files:   7%|▋         | 31/457 [00:11<02:39,  2.67it/s]Fetching 457 files:   7%|▋         | 33/457 [00:12<02:26,  2.90it/s]Fetching 457 files:   7%|▋         | 34/457 [00:12<02:13,  3.16it/s]Fetching 457 files:   8%|▊         | 35/457 [00:13<02:46,  2.53it/s]Fetching 457 files:   8%|▊         | 37/457 [00:13<02:16,  3.08it/s]Fetching 457 files:   8%|▊         | 38/457 [00:14<02:05,  3.34it/s]Fetching 457 files:   9%|▊         | 39/457 [00:14<02:39,  2.63it/s]Fetching 457 files:   9%|▉         | 41/457 [00:15<02:08,  3.23it/s]Fetching 457 files:   9%|▉         | 42/457 [00:15<02:14,  3.10it/s]Fetching 457 files:   9%|▉         | 43/457 [00:16<02:55,  2.36it/s]Fetching 457 files:  10%|▉         | 44/457 [00:16<02:31,  2.72it/s]Fetching 457 files:  10%|▉         | 45/457 [00:16<02:07,  3.22it/s]Fetching 457 files:  10%|█         | 46/457 [00:16<01:52,  3.65it/s]Fetching 457 files:  10%|█         | 47/457 [00:17<02:51,  2.40it/s]Fetching 457 files:  11%|█         | 48/457 [00:17<02:41,  2.53it/s]Fetching 457 files:  11%|█         | 49/457 [00:18<02:12,  3.09it/s]Fetching 457 files:  11%|█         | 51/457 [00:18<02:22,  2.84it/s]Fetching 457 files:  11%|█▏        | 52/457 [00:19<02:21,  2.86it/s]Fetching 457 files:  12%|█▏        | 53/457 [00:19<02:08,  3.14it/s]Fetching 457 files:  12%|█▏        | 55/457 [00:20<02:12,  3.02it/s]Fetching 457 files:  12%|█▏        | 56/457 [00:20<02:21,  2.83it/s]Fetching 457 files:  12%|█▏        | 57/457 [00:20<02:01,  3.29it/s]Fetching 457 files:  13%|█▎        | 58/457 [00:21<02:08,  3.11it/s]Fetching 457 files:  13%|█▎        | 59/457 [00:21<03:01,  2.19it/s]Fetching 457 files:  13%|█▎        | 60/457 [00:22<02:38,  2.51it/s]Fetching 457 files:  13%|█▎        | 61/457 [00:22<02:22,  2.79it/s]Fetching 457 files:  14%|█▎        | 62/457 [00:22<02:04,  3.18it/s]Fetching 457 files:  14%|█▍        | 63/457 [00:23<02:29,  2.64it/s]Fetching 457 files:  14%|█▍        | 64/457 [00:23<02:46,  2.36it/s]Fetching 457 files:  14%|█▍        | 66/457 [00:24<02:18,  2.82it/s]Fetching 457 files:  15%|█▍        | 67/457 [00:24<02:30,  2.58it/s]Fetching 457 files:  15%|█▍        | 68/457 [00:25<02:35,  2.49it/s]Fetching 457 files:  15%|█▌        | 70/457 [00:25<01:53,  3.41it/s]Fetching 457 files:  16%|█▌        | 71/457 [00:26<02:47,  2.31it/s]Fetching 457 files:  16%|█▌        | 72/457 [00:26<02:23,  2.69it/s]Fetching 457 files:  16%|█▌        | 73/457 [00:26<01:58,  3.24it/s]Fetching 457 files:  16%|█▌        | 74/457 [00:26<01:53,  3.38it/s]Fetching 457 files:  16%|█▋        | 75/457 [00:27<02:39,  2.40it/s]Fetching 457 files:  17%|█▋        | 77/457 [00:28<02:06,  3.01it/s]Fetching 457 files:  17%|█▋        | 79/457 [00:29<02:29,  2.53it/s]Fetching 457 files:  18%|█▊        | 81/457 [00:29<01:52,  3.35it/s]Fetching 457 files:  18%|█▊        | 82/457 [00:29<01:48,  3.45it/s]Fetching 457 files:  18%|█▊        | 83/457 [00:30<02:51,  2.18it/s]Fetching 457 files:  19%|█▊        | 85/457 [00:30<01:59,  3.11it/s]Fetching 457 files:  19%|█▉        | 87/457 [00:31<02:25,  2.54it/s]Fetching 457 files:  19%|█▉        | 88/457 [00:32<02:15,  2.72it/s]Fetching 457 files:  20%|█▉        | 90/457 [00:32<01:36,  3.81it/s]Fetching 457 files:  20%|█▉        | 91/457 [00:33<02:53,  2.11it/s]Fetching 457 files:  20%|██        | 92/457 [00:33<02:21,  2.58it/s]Fetching 457 files:  21%|██        | 94/457 [00:33<01:40,  3.61it/s]Fetching 457 files:  21%|██        | 95/457 [00:34<02:45,  2.19it/s]Fetching 457 files:  21%|██        | 97/457 [00:35<01:52,  3.20it/s]Fetching 457 files:  21%|██▏       | 98/457 [00:35<01:40,  3.59it/s]Fetching 457 files:  22%|██▏       | 99/457 [00:36<02:56,  2.03it/s]Fetching 457 files:  22%|██▏       | 102/457 [00:36<01:39,  3.57it/s]Fetching 457 files:  23%|██▎       | 103/457 [00:37<02:29,  2.37it/s]Fetching 457 files:  23%|██▎       | 105/457 [00:37<01:42,  3.43it/s]Fetching 457 files:  23%|██▎       | 106/457 [00:38<01:44,  3.37it/s]Fetching 457 files:  23%|██▎       | 107/457 [00:38<02:20,  2.50it/s]Fetching 457 files:  24%|██▎       | 108/457 [00:39<02:14,  2.60it/s]Fetching 457 files:  24%|██▍       | 110/457 [00:39<01:33,  3.71it/s]Fetching 457 files:  24%|██▍       | 111/457 [00:40<02:39,  2.17it/s]Fetching 457 files:  25%|██▍       | 112/457 [00:40<02:17,  2.52it/s]Fetching 457 files:  25%|██▍       | 114/457 [00:40<01:30,  3.79it/s]Fetching 457 files:  25%|██▌       | 115/457 [00:41<02:24,  2.37it/s]Fetching 457 files:  25%|██▌       | 116/457 [00:41<02:01,  2.81it/s]Fetching 457 files:  26%|██▌       | 118/457 [00:42<01:42,  3.31it/s]Fetching 457 files:  26%|██▌       | 119/457 [00:43<02:11,  2.58it/s]Fetching 457 files:  26%|██▋       | 120/457 [00:43<02:02,  2.75it/s]Fetching 457 files:  27%|██▋       | 122/457 [00:43<01:32,  3.61it/s]Fetching 457 files:  27%|██▋       | 123/457 [00:44<02:17,  2.42it/s]Fetching 457 files:  28%|██▊       | 126/457 [00:44<01:29,  3.71it/s]Fetching 457 files:  28%|██▊       | 127/457 [00:46<02:17,  2.41it/s]Fetching 457 files:  28%|██▊       | 129/457 [00:46<01:35,  3.43it/s]Fetching 457 files:  28%|██▊       | 130/457 [00:46<01:38,  3.33it/s]Fetching 457 files:  29%|██▊       | 131/457 [00:47<02:23,  2.26it/s]Fetching 457 files:  29%|██▉       | 134/457 [00:47<01:29,  3.61it/s]Fetching 457 files:  30%|██▉       | 135/457 [00:48<02:15,  2.38it/s]Fetching 457 files:  30%|██▉       | 137/457 [00:48<01:39,  3.22it/s]Fetching 457 files:  30%|███       | 138/457 [00:49<01:44,  3.06it/s]Fetching 457 files:  30%|███       | 139/457 [00:50<02:10,  2.43it/s]Fetching 457 files:  31%|███       | 140/457 [00:50<02:12,  2.40it/s]Fetching 457 files:  31%|███       | 142/457 [00:50<01:25,  3.70it/s]Fetching 457 files:  31%|███▏      | 143/457 [00:51<02:03,  2.55it/s]Fetching 457 files:  32%|███▏      | 144/457 [00:52<02:18,  2.27it/s]Fetching 457 files:  32%|███▏      | 147/457 [00:53<02:04,  2.49it/s]Fetching 457 files:  32%|███▏      | 148/457 [00:53<01:58,  2.61it/s]Fetching 457 files:  33%|███▎      | 151/457 [00:54<02:02,  2.50it/s]Fetching 457 files:  33%|███▎      | 152/457 [00:54<01:45,  2.88it/s]Fetching 457 files:  33%|███▎      | 153/457 [00:55<01:39,  3.04it/s]Fetching 457 files:  34%|███▎      | 154/457 [00:55<01:24,  3.58it/s]Fetching 457 files:  34%|███▍      | 155/457 [00:55<02:02,  2.46it/s]Fetching 457 files:  34%|███▍      | 156/457 [00:56<01:46,  2.84it/s]Fetching 457 files:  34%|███▍      | 157/457 [00:56<01:29,  3.35it/s]Fetching 457 files:  35%|███▍      | 158/457 [00:56<01:17,  3.87it/s]Fetching 457 files:  35%|███▍      | 159/457 [00:57<02:25,  2.05it/s]Fetching 457 files:  35%|███▌      | 161/457 [00:57<01:36,  3.06it/s]Fetching 457 files:  35%|███▌      | 162/457 [00:58<01:43,  2.86it/s]Fetching 457 files:  36%|███▌      | 163/457 [00:58<02:12,  2.23it/s]Fetching 457 files:  36%|███▌      | 165/457 [00:59<01:37,  2.98it/s]Fetching 457 files:  37%|███▋      | 167/457 [01:00<01:52,  2.57it/s]Fetching 457 files:  37%|███▋      | 169/457 [01:00<01:38,  2.94it/s]Fetching 457 files:  37%|███▋      | 170/457 [01:01<01:43,  2.77it/s]Fetching 457 files:  37%|███▋      | 171/457 [01:01<01:45,  2.71it/s]Fetching 457 files:  38%|███▊      | 172/457 [01:01<01:26,  3.29it/s]Fetching 457 files:  38%|███▊      | 173/457 [01:02<01:31,  3.09it/s]Fetching 457 files:  38%|███▊      | 174/457 [01:02<02:00,  2.34it/s]Fetching 457 files:  38%|███▊      | 175/457 [01:02<01:36,  2.92it/s]Fetching 457 files:  39%|███▊      | 177/457 [01:03<01:19,  3.51it/s]Fetching 457 files:  39%|███▉      | 178/457 [01:04<02:09,  2.16it/s]Fetching 457 files:  39%|███▉      | 180/457 [01:04<01:26,  3.21it/s]Fetching 457 files:  40%|███▉      | 182/457 [01:05<01:55,  2.39it/s]Fetching 457 files:  40%|████      | 183/457 [01:05<01:37,  2.80it/s]Fetching 457 files:  40%|████      | 184/457 [01:05<01:21,  3.34it/s]Fetching 457 files:  40%|████      | 185/457 [01:06<01:17,  3.51it/s]Fetching 457 files:  41%|████      | 186/457 [01:07<01:54,  2.36it/s]Fetching 457 files:  41%|████      | 188/457 [01:07<01:28,  3.04it/s]Fetching 457 files:  42%|████▏     | 190/457 [01:08<01:40,  2.65it/s]Fetching 457 files:  42%|████▏     | 191/457 [01:08<01:33,  2.86it/s]Fetching 457 files:  42%|████▏     | 192/457 [01:08<01:19,  3.32it/s]Fetching 457 files:  42%|████▏     | 193/457 [01:08<01:06,  3.97it/s]Fetching 457 files:  42%|████▏     | 194/457 [01:09<01:59,  2.19it/s]Fetching 457 files:  43%|████▎     | 195/457 [01:10<01:39,  2.64it/s]Fetching 457 files:  43%|████▎     | 196/457 [01:10<01:25,  3.07it/s]Fetching 457 files:  43%|████▎     | 198/457 [01:11<01:49,  2.37it/s]Fetching 457 files:  44%|████▍     | 200/457 [01:11<01:12,  3.56it/s]Fetching 457 files:  44%|████▍     | 201/457 [01:11<01:10,  3.66it/s]Fetching 457 files:  44%|████▍     | 202/457 [01:12<02:03,  2.07it/s]Fetching 457 files:  44%|████▍     | 203/457 [01:12<01:37,  2.59it/s]Fetching 457 files:  45%|████▌     | 206/457 [01:14<01:38,  2.55it/s]Fetching 457 files:  46%|████▌     | 209/457 [01:14<01:09,  3.58it/s]Fetching 457 files:  46%|████▌     | 210/457 [01:15<01:33,  2.63it/s]Fetching 457 files:  46%|████▌     | 211/457 [01:15<01:28,  2.76it/s]Fetching 457 files:  47%|████▋     | 213/457 [01:16<01:15,  3.23it/s]Fetching 457 files:  47%|████▋     | 214/457 [01:16<01:41,  2.40it/s]Fetching 457 files:  47%|████▋     | 216/457 [01:17<01:15,  3.19it/s]Fetching 457 files:  47%|████▋     | 217/457 [01:17<01:10,  3.39it/s]Fetching 457 files:  48%|████▊     | 218/457 [01:18<01:52,  2.12it/s]Fetching 457 files:  48%|████▊     | 220/457 [01:18<01:17,  3.06it/s]Fetching 457 files:  49%|████▊     | 222/457 [01:19<01:20,  2.90it/s]Fetching 457 files:  49%|████▉     | 223/457 [01:19<01:23,  2.81it/s]Fetching 457 files:  49%|████▉     | 224/457 [01:20<01:20,  2.91it/s]Fetching 457 files:  49%|████▉     | 226/457 [01:21<01:38,  2.34it/s]Fetching 457 files:  50%|████▉     | 228/457 [01:21<01:09,  3.28it/s]Fetching 457 files:  50%|█████     | 230/457 [01:22<01:34,  2.41it/s]Fetching 457 files:  51%|█████     | 233/457 [01:22<00:57,  3.88it/s]Fetching 457 files:  51%|█████▏    | 235/457 [01:24<01:24,  2.61it/s]Fetching 457 files:  52%|█████▏    | 238/457 [01:25<01:26,  2.54it/s]Fetching 457 files:  53%|█████▎    | 240/457 [01:25<01:10,  3.08it/s]Fetching 457 files:  53%|█████▎    | 242/457 [01:26<01:24,  2.56it/s]Fetching 457 files:  53%|█████▎    | 243/457 [01:26<01:14,  2.87it/s]Fetching 457 files:  53%|█████▎    | 244/457 [01:27<01:11,  2.99it/s]Fetching 457 files:  54%|█████▍    | 246/457 [01:28<01:31,  2.30it/s]Fetching 457 files:  54%|█████▍    | 247/457 [01:28<01:19,  2.64it/s]Fetching 457 files:  54%|█████▍    | 248/457 [01:28<01:08,  3.03it/s]Fetching 457 files:  54%|█████▍    | 249/457 [01:28<00:59,  3.49it/s]Fetching 457 files:  55%|█████▍    | 250/457 [01:29<01:37,  2.13it/s]Fetching 457 files:  55%|█████▍    | 251/457 [01:30<01:19,  2.60it/s]Fetching 457 files:  55%|█████▌    | 252/457 [01:30<01:09,  2.95it/s]Fetching 457 files:  56%|█████▌    | 254/457 [01:31<01:20,  2.51it/s]Fetching 457 files:  56%|█████▌    | 256/457 [01:31<01:02,  3.21it/s]Fetching 457 files:  56%|█████▌    | 257/457 [01:32<01:18,  2.56it/s]Fetching 457 files:  56%|█████▋    | 258/457 [01:32<01:12,  2.74it/s]Fetching 457 files:  57%|█████▋    | 260/457 [01:32<00:55,  3.57it/s]Fetching 457 files:  57%|█████▋    | 261/457 [01:33<01:11,  2.76it/s]Fetching 457 files:  57%|█████▋    | 262/457 [01:33<01:11,  2.74it/s]Fetching 457 files:  58%|█████▊    | 263/457 [01:34<01:10,  2.74it/s]Fetching 457 files:  58%|█████▊    | 265/457 [01:35<01:20,  2.39it/s]Fetching 457 files:  58%|█████▊    | 266/457 [01:35<01:07,  2.84it/s]Fetching 457 files:  58%|█████▊    | 267/457 [01:35<01:09,  2.73it/s]Fetching 457 files:  59%|█████▉    | 269/457 [01:36<01:09,  2.71it/s]Fetching 457 files:  59%|█████▉    | 270/457 [01:36<01:07,  2.77it/s]Fetching 457 files:  59%|█████▉    | 271/457 [01:37<01:00,  3.07it/s]Fetching 457 files:  60%|█████▉    | 272/457 [01:37<00:58,  3.18it/s]Fetching 457 files:  60%|█████▉    | 273/457 [01:37<01:03,  2.89it/s]Fetching 457 files:  60%|█████▉    | 274/457 [01:38<00:58,  3.15it/s]Fetching 457 files:  60%|██████    | 275/457 [01:38<01:00,  2.99it/s]Fetching 457 files:  60%|██████    | 276/457 [01:38<00:54,  3.29it/s]Fetching 457 files:  61%|██████    | 277/457 [01:39<00:55,  3.22it/s]Fetching 457 files:  61%|██████    | 278/457 [01:39<00:58,  3.09it/s]Fetching 457 files:  61%|██████    | 279/457 [01:39<01:08,  2.62it/s]Fetching 457 files:  61%|██████▏   | 280/457 [01:40<01:05,  2.69it/s]Fetching 457 files:  62%|██████▏   | 282/457 [01:40<01:01,  2.82it/s]Fetching 457 files:  62%|██████▏   | 283/457 [01:41<00:56,  3.05it/s]Fetching 457 files:  62%|██████▏   | 284/457 [01:41<01:04,  2.68it/s]Fetching 457 files:  63%|██████▎   | 286/457 [01:42<00:52,  3.24it/s]Fetching 457 files:  63%|██████▎   | 287/457 [01:42<00:58,  2.90it/s]Fetching 457 files:  63%|██████▎   | 288/457 [01:42<00:58,  2.88it/s]Fetching 457 files:  63%|██████▎   | 290/457 [01:43<00:56,  2.96it/s]Fetching 457 files:  64%|██████▎   | 291/457 [01:43<00:53,  3.09it/s]Fetching 457 files:  64%|██████▍   | 292/457 [01:44<00:56,  2.94it/s]Fetching 457 files:  64%|██████▍   | 294/457 [01:44<00:50,  3.25it/s]Fetching 457 files:  65%|██████▍   | 295/457 [01:45<00:50,  3.19it/s]Fetching 457 files:  65%|██████▍   | 296/457 [01:45<00:57,  2.80it/s]Fetching 457 files:  65%|██████▍   | 297/457 [01:45<00:55,  2.89it/s]Fetching 457 files:  65%|██████▌   | 298/457 [01:46<00:57,  2.74it/s]Fetching 457 files:  65%|██████▌   | 299/457 [01:46<00:52,  3.02it/s]Fetching 457 files:  66%|██████▌   | 300/457 [01:46<00:57,  2.75it/s]Fetching 457 files:  66%|██████▌   | 301/457 [01:47<00:51,  3.05it/s]Fetching 457 files:  66%|██████▌   | 302/457 [01:47<01:01,  2.52it/s]Fetching 457 files:  67%|██████▋   | 304/457 [01:48<00:46,  3.29it/s]Fetching 457 files:  67%|██████▋   | 305/457 [01:48<00:45,  3.32it/s]Fetching 457 files:  67%|██████▋   | 306/457 [01:49<00:58,  2.56it/s]Fetching 457 files:  67%|██████▋   | 307/457 [01:49<00:49,  3.00it/s]Fetching 457 files:  67%|██████▋   | 308/457 [01:49<00:54,  2.71it/s]Fetching 457 files:  68%|██████▊   | 309/457 [01:50<00:50,  2.94it/s]Fetching 457 files:  68%|██████▊   | 310/457 [01:50<00:51,  2.84it/s]Fetching 457 files:  68%|██████▊   | 311/457 [01:50<00:42,  3.45it/s]Fetching 457 files:  68%|██████▊   | 312/457 [01:51<00:54,  2.66it/s]Fetching 457 files:  68%|██████▊   | 313/457 [01:51<00:44,  3.22it/s]Fetching 457 files:  69%|██████▊   | 314/457 [01:51<00:51,  2.80it/s]Fetching 457 files:  69%|██████▉   | 315/457 [01:52<00:53,  2.68it/s]Fetching 457 files:  69%|██████▉   | 316/457 [01:52<00:59,  2.39it/s]Fetching 457 files:  70%|██████▉   | 318/457 [01:53<01:03,  2.20it/s]Fetching 457 files:  70%|███████   | 320/457 [01:53<00:45,  2.99it/s]Fetching 457 files:  70%|███████   | 321/457 [01:54<00:46,  2.95it/s]Fetching 457 files:  70%|███████   | 322/457 [01:55<00:58,  2.29it/s]Fetching 457 files:  71%|███████   | 323/457 [01:55<00:52,  2.56it/s]Fetching 457 files:  71%|███████   | 324/457 [01:55<00:43,  3.03it/s]Fetching 457 files:  71%|███████   | 325/457 [01:55<00:44,  2.96it/s]Fetching 457 files:  71%|███████▏  | 326/457 [01:56<00:49,  2.66it/s]Fetching 457 files:  72%|███████▏  | 327/457 [01:56<00:45,  2.88it/s]Fetching 457 files:  72%|███████▏  | 328/457 [01:56<00:39,  3.30it/s]Fetching 457 files:  72%|███████▏  | 329/457 [01:57<00:40,  3.19it/s]Fetching 457 files:  72%|███████▏  | 330/457 [01:57<00:55,  2.29it/s]Fetching 457 files:  72%|███████▏  | 331/457 [01:58<00:47,  2.64it/s]Fetching 457 files:  73%|███████▎  | 333/457 [01:58<00:33,  3.66it/s]Fetching 457 files:  73%|███████▎  | 334/457 [01:59<00:48,  2.53it/s]Fetching 457 files:  73%|███████▎  | 335/457 [01:59<00:44,  2.73it/s]Fetching 457 files:  74%|███████▎  | 336/457 [01:59<00:37,  3.20it/s]Fetching 457 files:  74%|███████▎  | 337/457 [02:00<00:50,  2.39it/s]Fetching 457 files:  74%|███████▍  | 339/457 [02:00<00:43,  2.69it/s]Fetching 457 files:  74%|███████▍  | 340/457 [02:01<00:39,  2.95it/s]Fetching 457 files:  75%|███████▍  | 341/457 [02:01<00:46,  2.48it/s]Fetching 457 files:  75%|███████▍  | 342/457 [02:02<00:48,  2.36it/s]Fetching 457 files:  75%|███████▌  | 343/457 [02:02<00:39,  2.91it/s]Fetching 457 files:  75%|███████▌  | 345/457 [02:03<00:42,  2.64it/s]Fetching 457 files:  76%|███████▌  | 346/457 [02:03<00:41,  2.64it/s]Fetching 457 files:  76%|███████▌  | 347/457 [02:03<00:37,  2.96it/s]Fetching 457 files:  76%|███████▌  | 348/457 [02:03<00:30,  3.60it/s]Fetching 457 files:  76%|███████▋  | 349/457 [02:04<00:50,  2.13it/s]Fetching 457 files:  77%|███████▋  | 350/457 [02:05<00:47,  2.24it/s]Fetching 457 files:  77%|███████▋  | 351/457 [02:05<00:37,  2.81it/s]Fetching 457 files:  77%|███████▋  | 353/457 [02:06<00:39,  2.64it/s]Fetching 457 files:  77%|███████▋  | 354/457 [02:06<00:36,  2.83it/s]Fetching 457 files:  78%|███████▊  | 355/457 [02:06<00:37,  2.72it/s]Fetching 457 files:  78%|███████▊  | 357/457 [02:07<00:38,  2.57it/s]Fetching 457 files:  78%|███████▊  | 358/457 [02:07<00:34,  2.88it/s]Fetching 457 files:  79%|███████▊  | 359/457 [02:08<00:31,  3.15it/s]Fetching 457 files:  79%|███████▉  | 360/457 [02:08<00:31,  3.12it/s]Fetching 457 files:  79%|███████▉  | 361/457 [02:08<00:34,  2.80it/s]Fetching 457 files:  79%|███████▉  | 362/457 [02:09<00:37,  2.50it/s]Fetching 457 files:  80%|███████▉  | 364/457 [02:10<00:32,  2.87it/s]Fetching 457 files:  80%|███████▉  | 365/457 [02:10<00:30,  3.01it/s]Fetching 457 files:  80%|████████  | 366/457 [02:10<00:31,  2.86it/s]Fetching 457 files:  80%|████████  | 367/457 [02:10<00:27,  3.23it/s]Fetching 457 files:  81%|████████  | 368/457 [02:11<00:30,  2.92it/s]Fetching 457 files:  81%|████████  | 369/457 [02:12<00:37,  2.33it/s]Fetching 457 files:  81%|████████  | 370/457 [02:12<00:29,  2.93it/s]Fetching 457 files:  81%|████████▏ | 372/457 [02:12<00:28,  2.94it/s]Fetching 457 files:  82%|████████▏ | 377/457 [02:13<00:15,  5.27it/s]Fetching 457 files:  83%|████████▎ | 378/457 [02:13<00:14,  5.38it/s]Fetching 457 files:  83%|████████▎ | 379/457 [02:13<00:14,  5.35it/s]Fetching 457 files:  83%|████████▎ | 380/457 [02:14<00:21,  3.50it/s]Fetching 457 files:  83%|████████▎ | 381/457 [02:14<00:26,  2.85it/s]Fetching 457 files:  84%|████████▎ | 382/457 [02:15<00:21,  3.44it/s]Fetching 457 files:  84%|████████▍ | 383/457 [02:15<00:18,  4.02it/s]Fetching 457 files:  84%|████████▍ | 384/457 [02:55<13:25, 11.03s/it]Fetching 457 files:  84%|████████▍ | 385/457 [03:19<17:22, 14.48s/it]Fetching 457 files:  84%|████████▍ | 386/457 [03:28<15:33, 13.15s/it]Fetching 457 files:  85%|████████▍ | 387/457 [03:30<11:24,  9.78s/it]Fetching 457 files:  85%|████████▍ | 388/457 [03:31<08:30,  7.40s/it]Fetching 457 files:  85%|████████▌ | 389/457 [03:32<06:11,  5.46s/it]Fetching 457 files:  85%|████████▌ | 390/457 [03:34<04:54,  4.39s/it]Fetching 457 files:  86%|████████▌ | 391/457 [03:39<05:08,  4.68s/it]Fetching 457 files:  86%|████████▌ | 392/457 [04:06<12:04, 11.15s/it]Fetching 457 files:  86%|████████▌ | 393/457 [04:06<08:23,  7.87s/it]Fetching 457 files:  86%|████████▌ | 394/457 [04:06<05:56,  5.66s/it]Fetching 457 files:  86%|████████▋ | 395/457 [04:10<05:16,  5.11s/it]Fetching 457 files:  87%|████████▋ | 396/457 [04:12<04:03,  3.99s/it]Fetching 457 files:  87%|████████▋ | 397/457 [04:14<03:33,  3.55s/it]Fetching 457 files:  87%|████████▋ | 398/457 [04:15<02:41,  2.73s/it]Fetching 457 files:  87%|████████▋ | 399/457 [04:28<05:39,  5.85s/it]Fetching 457 files:  88%|████████▊ | 400/457 [04:44<08:16,  8.70s/it]Fetching 457 files:  88%|████████▊ | 401/457 [04:53<08:14,  8.82s/it]Fetching 457 files:  88%|████████▊ | 402/457 [04:53<05:43,  6.25s/it]Fetching 457 files:  88%|████████▊ | 403/457 [04:56<04:45,  5.29s/it]Fetching 457 files:  88%|████████▊ | 404/457 [05:00<04:14,  4.80s/it]Fetching 457 files:  89%|████████▊ | 405/457 [05:17<07:22,  8.51s/it]Fetching 457 files:  89%|████████▉ | 406/457 [05:27<07:35,  8.93s/it]Fetching 457 files:  89%|████████▉ | 407/457 [05:28<05:28,  6.57s/it]Fetching 457 files:  89%|████████▉ | 408/457 [05:36<05:46,  7.07s/it]Fetching 457 files:  89%|████████▉ | 409/457 [05:37<04:17,  5.36s/it]Fetching 457 files:  90%|████████▉ | 410/457 [05:58<07:50, 10.01s/it]Fetching 457 files:  90%|████████▉ | 411/457 [05:58<05:23,  7.04s/it]Fetching 457 files:  90%|█████████ | 412/457 [05:59<03:56,  5.24s/it]Fetching 457 files:  90%|█████████ | 413/457 [05:59<02:42,  3.70s/it]Fetching 457 files:  91%|█████████ | 414/457 [06:00<01:54,  2.67s/it]Fetching 457 files:  91%|█████████ | 415/457 [06:02<01:50,  2.64s/it]Fetching 457 files:  91%|█████████ | 416/457 [06:02<01:17,  1.89s/it]Fetching 457 files:  91%|█████████ | 417/457 [06:03<00:56,  1.40s/it]Fetching 457 files:  91%|█████████▏| 418/457 [06:08<01:45,  2.70s/it]Fetching 457 files:  92%|█████████▏| 419/457 [06:33<05:52,  9.28s/it]Fetching 457 files:  92%|█████████▏| 420/457 [06:34<04:10,  6.77s/it]Fetching 457 files:  92%|█████████▏| 421/457 [06:49<05:30,  9.18s/it]Fetching 457 files:  92%|█████████▏| 422/457 [06:49<03:47,  6.49s/it]Fetching 457 files:  93%|█████████▎| 423/457 [06:49<02:36,  4.61s/it]Fetching 457 files:  93%|█████████▎| 424/457 [06:49<01:47,  3.27s/it]Fetching 457 files:  93%|█████████▎| 425/457 [06:52<01:36,  3.01s/it]Fetching 457 files:  93%|█████████▎| 426/457 [07:06<03:21,  6.51s/it]Fetching 457 files:  93%|█████████▎| 427/457 [07:23<04:50,  9.68s/it]Fetching 457 files:  94%|█████████▎| 428/457 [07:25<03:25,  7.08s/it]Fetching 457 files:  94%|█████████▍| 429/457 [07:26<02:35,  5.54s/it]Fetching 457 files:  94%|█████████▍| 430/457 [07:27<01:49,  4.05s/it]Fetching 457 files:  94%|█████████▍| 431/457 [07:34<02:06,  4.88s/it]Fetching 457 files:  95%|█████████▍| 432/457 [07:40<02:14,  5.37s/it]Fetching 457 files:  95%|█████████▍| 433/457 [07:49<02:32,  6.37s/it]Fetching 457 files:  95%|█████████▍| 434/457 [07:50<01:47,  4.68s/it]Fetching 457 files:  95%|█████████▌| 435/457 [07:54<01:39,  4.53s/it]Fetching 457 files:  95%|█████████▌| 436/457 [08:07<02:29,  7.12s/it]Fetching 457 files:  96%|█████████▌| 437/457 [08:09<01:49,  5.48s/it]Fetching 457 files:  96%|█████████▌| 438/457 [08:13<01:37,  5.12s/it]Fetching 457 files:  96%|█████████▌| 439/457 [08:25<02:11,  7.29s/it]Fetching 457 files:  96%|█████████▋| 440/457 [08:26<01:28,  5.23s/it]Fetching 457 files:  96%|█████████▋| 441/457 [08:40<02:07,  7.97s/it]Fetching 457 files:  97%|█████████▋| 442/457 [08:41<01:27,  5.84s/it]Fetching 457 files:  97%|█████████▋| 443/457 [08:51<01:40,  7.19s/it]Fetching 457 files:  97%|█████████▋| 444/457 [08:59<01:34,  7.25s/it]Fetching 457 files:  97%|█████████▋| 445/457 [09:09<01:37,  8.10s/it]Fetching 457 files:  98%|█████████▊| 446/457 [09:10<01:04,  5.88s/it]Fetching 457 files:  98%|█████████▊| 447/457 [09:15<00:58,  5.82s/it]Fetching 457 files:  98%|█████████▊| 448/457 [09:22<00:55,  6.16s/it]Fetching 457 files:  98%|█████████▊| 449/457 [09:34<01:02,  7.84s/it]Fetching 457 files:  98%|█████████▊| 450/457 [09:38<00:47,  6.76s/it]Fetching 457 files:  99%|█████████▊| 451/457 [09:39<00:29,  4.86s/it]Fetching 457 files:  99%|█████████▉| 453/457 [09:39<00:10,  2.75s/it]Fetching 457 files:  99%|█████████▉| 454/457 [09:45<00:10,  3.53s/it]Fetching 457 files: 100%|█████████▉| 455/457 [09:46<00:05,  2.77s/it]Fetching 457 files: 100%|█████████▉| 456/457 [09:47<00:02,  2.47s/it]Fetching 457 files: 100%|██████████| 457/457 [09:48<00:00,  1.94s/it]Fetching 457 files: 100%|██████████| 457/457 [09:48<00:00,  1.29s/it]
+INFO 2026-11-15 18:01:00 ot_train.py:628 Creating policy
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...
+Loading weights:   0%|          | 0/489 [00:00<?, ?it/s]Loading weights:  36%|███▋      | 178/489 [00:00<00:00, 1749.35it/s]Loading weights:  92%|█████████▏| 451/489 [00:00<00:00, 2317.84it/s]Loading weights: 100%|██████████| 489/489 [00:00<00:00, 2305.43it/s]
+INFO 2026-11-15 18:04:54 ot_train.py:723 Creating optimizer and scheduler
+INFO 2026-11-15 18:04:54 hedulers.py:156 Auto-scaling LR scheduler: num_training_steps (50) < num_decay_steps (30000). Scaling warmup: 1000 → 1, decay: 30000 → 50 (scale factor: 0.002)
+INFO 2026-11-15 18:04:54 ot_train.py:784 Output dir: outputs/smoke
+INFO 2026-11-15 18:04:54 ot_train.py:791 cfg.steps=50 (50)
+INFO 2026-11-15 18:04:54 ot_train.py:792 dataset.num_frames=273465 (273K)
+INFO 2026-11-15 18:04:54 ot_train.py:793 dataset.num_episodes=1693
+INFO 2026-11-15 18:04:54 ot_train.py:794 Effective batch size: 4 x 1 dp workers x 1 grad accum = 4 (topology: dp_replicate=1, dp_shard=1)
+INFO 2026-11-15 18:04:54 ot_train.py:799 num_learnable_params=99880992 (100M)
+INFO 2026-11-15 18:04:54 ot_train.py:800 num_total_params=450046176 (450M)
+Reducing the number of VLM layers to 16 ...
+Training:   0%|          | 0/50 [00:00<?, ?step/s]INFO 2026-11-15 18:04:54 ot_train.py:848 Start offline training on a fixed dataset, with effective batch size: 4
+/home/sudarshan/smolvla/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+/home/sudarshan/smolvla/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+/home/sudarshan/smolvla/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+/home/sudarshan/smolvla/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+Training:   2%|▏         | 1/50 [00:06<05:12,  6.39s/step]Training:   4%|▍         | 2/50 [00:06<02:11,  2.74s/step]Training:   6%|▌         | 3/50 [00:06<01:14,  1.58s/step]Training:   8%|▊         | 4/50 [00:06<00:47,  1.03s/step]Training:  10%|█         | 5/50 [00:07<00:32,  1.37step/s]Training:  12%|█▏        | 6/50 [00:07<00:24,  1.79step/s]Training:  14%|█▍        | 7/50 [00:07<00:18,  2.27step/s]Training:  16%|█▌        | 8/50 [00:07<00:15,  2.77step/s]Training:  18%|█▊        | 9/50 [00:07<00:12,  3.25step/s]Training:  20%|██        | 10/50 [00:08<00:10,  3.68step/s]Training:  22%|██▏       | 11/50 [00:08<00:09,  3.92step/s]Training:  24%|██▍       | 12/50 [00:08<00:09,  4.19step/s]Training:  26%|██▌       | 13/50 [00:08<00:08,  4.43step/s]Training:  28%|██▊       | 14/50 [00:08<00:07,  4.67step/s]Training:  30%|███       | 15/50 [00:09<00:07,  4.81step/s]Training:  32%|███▏      | 16/50 [00:09<00:07,  4.81step/s]Training:  34%|███▍      | 17/50 [00:09<00:06,  4.79step/s]Training:  36%|███▌      | 18/50 [00:09<00:06,  4.88step/s]Training:  38%|███▊      | 19/50 [00:09<00:06,  4.98step/s]Training:  40%|████      | 20/50 [00:10<00:05,  5.01step/s]Training:  42%|████▏     | 21/50 [00:10<00:05,  4.95step/s]Training:  44%|████▍     | 22/50 [00:10<00:05,  4.96step/s]Training:  46%|████▌     | 23/50 [00:10<00:05,  5.01step/s]Training:  48%|████▊     | 24/50 [00:10<00:05,  5.07step/s]Training:  50%|█████     | 25/50 [00:11<00:04,  5.09step/s]Training:  52%|█████▏    | 26/50 [00:11<00:04,  5.04step/s]Training:  54%|█████▍    | 27/50 [00:11<00:04,  5.02step/s]Training:  56%|█████▌    | 28/50 [00:11<00:04,  5.04step/s]Training:  58%|█████▊    | 29/50 [00:11<00:04,  5.10step/s]Training:  60%|██████    | 30/50 [00:12<00:03,  5.10step/s]Training:  62%|██████▏   | 31/50 [00:12<00:03,  5.04step/s]Training:  64%|██████▍   | 32/50 [00:12<00:03,  5.04step/s]Training:  66%|██████▌   | 33/50 [00:12<00:03,  5.07step/s]Training:  68%|██████▊   | 34/50 [00:12<00:03,  5.10step/s]Training:  70%|███████   | 35/50 [00:13<00:02,  5.10step/s]Training:  72%|███████▏  | 36/50 [00:13<00:02,  5.06step/s]Training:  74%|███████▍  | 37/50 [00:13<00:02,  5.04step/s]Training:  76%|███████▌  | 38/50 [00:13<00:02,  5.05step/s]Training:  78%|███████▊  | 39/50 [00:13<00:02,  5.09step/s]Training:  80%|████████  | 40/50 [00:14<00:01,  5.10step/s]Training:  82%|████████▏ | 41/50 [00:14<00:01,  5.08step/s]Training:  84%|████████▍ | 42/50 [00:14<00:01,  5.05step/s]Training:  86%|████████▌ | 43/50 [00:14<00:01,  5.05step/s]Training:  88%|████████▊ | 44/50 [00:14<00:01,  5.07step/s]Training:  90%|█████████ | 45/50 [00:15<00:00,  5.05step/s]Training:  92%|█████████▏| 46/50 [00:15<00:00,  5.03step/s]Training:  94%|█████████▍| 47/50 [00:15<00:00,  5.04step/s]Training:  96%|█████████▌| 48/50 [00:15<00:00,  5.05step/s]Training:  98%|█████████▊| 49/50 [00:15<00:00,  5.07step/s]Training: 100%|██████████| 50/50 [00:16<00:00,  5.06step/s]INFO 2026-11-15 18:05:10 ot_train.py:936 Checkpoint policy after step 50
+INFO 2026-11-15 18:05:10 n/_torch.py:299 Model weights successfully saved to outputs/smoke/checkpoints/000050/pretrained_model!
+Training: 100%|██████████| 50/50 [00:17<00:00,  2.94step/s]
+INFO 2026-11-15 18:05:11 t_train.py:1026 End of training
