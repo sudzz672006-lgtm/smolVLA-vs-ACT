@@ -64,6 +64,35 @@ Successful episodes from the stage 2 (replay) model:
 |---|---|
 | ![libero_10 success](results/videos/stage2_replay20_libero10_task5_success.gif) | ![libero_object success](results/videos/stage2_replay20_object_task0_success.gif) |
 
+## Environment setup
+Tested on Ubuntu 24.04 with an NVIDIA laptop GPU (8 GB). Training uses about 4 GB of GPU memory at batch size 16. Windows and macOS were not tested (offscreen rendering uses EGL, which is Linux-specific).
+
+1. **System packages:** FFmpeg and EGL/OpenGL libraries (`sudo apt install ffmpeg libegl1 libgl1`).
+2. **Python environment** (3.12, with `uv`):
+   ```bash
+   uv venv ~/smolvla --python 3.12 && source ~/smolvla/bin/activate
+   ```
+3. **PyTorch:** install a build that matches your GPU. RTX 50-series (Blackwell) cards need a CUDA 12.8 or newer build. Versions used here: `torch==2.15.0`, `torchvision==0.29.2`, `torchcodec==0.17.0` (full list in `requirements.txt`).
+4. **LeRobot at the commit used for these experiments:**
+   ```bash
+   git clone https://github.com/huggingface/lerobot && cd lerobot
+   git checkout $(cat ../smolVLA-vs-ACT/lerobot_commit.txt)
+   uv pip install -e ".[smolvla,libero]"
+   ```
+5. **MuJoCo and offscreen rendering:** no separate MuJoCo download is needed, because the `mujoco` Python package is pulled in by the `libero` extra. Rendering without a display uses EGL, which needs an NVIDIA driver with EGL support (driver 595 here). Set it in every new terminal and check it works:
+   ```bash
+   export MUJOCO_GL=egl
+   python -c "import mujoco; print('mujoco', mujoco.__version__)"
+   ```
+   If evaluation fails with an OpenGL/EGL error, make sure the NVIDIA driver is the active one (`nvidia-smi` works) and `libegl1` is installed. As a slow fallback, `sudo apt install libosmesa6-dev` and use `export MUJOCO_GL=osmesa`.
+6. **Data and weights download automatically** on first use: the `lerobot/libero` dataset and the SmolVLM2 backbone come from the Hugging Face Hub (public, no token needed) and are cached under `~/.cache/huggingface`.
+7. **Episode lists:** copy this repo's `splits/` folder into the LeRobot clone (the commands below read `splits/*.json` and write to `./outputs`), then build the replay list:
+   ```bash
+   python ../smolVLA-vs-ACT/scripts/make_replay_split.py splits/object_episodes.json splits/long10.json splits/long10_replay20.json
+   ```
+
+Run every command in "Reproducing" from inside the LeRobot clone with the environment active. Expect about 2 hours per 10,000 training steps and 10-20 minutes per 50-episode evaluation on a laptop GPU.
+
 ## Reproducing
 ```bash
 source ~/smolvla/bin/activate; export MUJOCO_GL=egl
