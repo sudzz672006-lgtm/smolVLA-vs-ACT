@@ -38,11 +38,12 @@ The model predicts 50-step action chunks; how many are executed before re-planni
 ![Stage 1 loss and success](results/figures/stage1_loss_and_success.png)
 ![Stage 2 replay run: loss and success comparison](results/figures/stage2_replay20_summary.png)
 
-## Example rollout
-Stage 2 (replay) model on libero_10, a successful episode: see [results/videos/](results/videos/)
+## Example rollouts
+Successful episodes from the stage 2 (replay) model:
 
-## ACT baseline
-Experiments are in progress and will be documented later.
+| libero_10 (new skill) | libero_object (old skill retained) |
+|---|---|
+| ![libero_10 success](results/videos/stage2_replay20_libero10_task5_success.gif) | ![libero_object success](results/videos/stage2_replay20_object_task0_success.gif) |
 
 ## Reproducing
 ```bash
@@ -64,3 +65,6 @@ lerobot-eval --policy.path=./outputs/stage2_replay20/checkpoints/010000/pretrain
 ## Layout
 `scripts/` helper tools (video listing, action traces, plots) | `splits/` episode-id lists |
 `logs/` training and evaluation logs | `results/` figures and example video
+
+## ACT baseline
+Experiments are in progress and will be documented later.
