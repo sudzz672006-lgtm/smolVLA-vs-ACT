@@ -72,9 +72,5 @@ for suite in libero_object libero_10; do
 done
 ```
 
-## Layout
-`scripts/` helper tools (video listing, action traces, plots) | `splits/` episode-id lists |
-`logs/` training and evaluation logs | `results/` figures and example video
-
 ## ACT baseline
 Experiments are in progress and will be documented later.
